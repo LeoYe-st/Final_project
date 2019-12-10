@@ -1,4 +1,5 @@
 import pygame
+import sys
 from pygame.locals import *
 from random import randint as rand
 from random import choice as rand1
@@ -140,6 +141,7 @@ class GameOfLife:
             for event in pygame.event.get():
                 if event.type == QUIT:
                     running = False
+                    sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     if event.button == 1:
                         if (event.pos[0] > 340) and (event.pos[0] < 490) and (event.pos[1] > 170) and (
@@ -216,7 +218,7 @@ class GameOfLife:
                     rules = False
                 if event.type == QUIT:
                     rules = False
-                    pygame.quit()
+                    sys.exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
                         rules = False
@@ -240,7 +242,7 @@ class GameOfLife:
             for event in pygame.event.get():
                 if event.type == QUIT:
                     running = False
-                    pygame.quit()
+                    sys.exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
                         running = False
@@ -335,7 +337,7 @@ class GameOfLife:
                         self.start_game()
                     if event.type == QUIT:
                         final = False
-                        pygame.quit()
+                        sys.exit()
                     if event.type == pygame.KEYDOWN:
                         if event.key == pygame.K_ESCAPE:
                             final = False
@@ -365,7 +367,7 @@ class GameOfLife:
             for event in pygame.event.get():
                 if event.type == QUIT:
                     running = False
-                    pygame.quit()
+                    sys.exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
                         running = False
@@ -403,7 +405,7 @@ class GameOfLife:
                     rules = False
                 if event.type == QUIT:
                     rules = False
-                    pygame.quit()
+                    sys.exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
                         rules = False
@@ -425,7 +427,7 @@ class GameOfLife:
             for event in pygame.event.get():
                 if event.type == QUIT:
                     running = False
-                    pygame.quit()
+                    sys.exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
                         running = False
@@ -467,7 +469,7 @@ class GameOfLife:
                         self.start_game()
                     if event.type == QUIT:
                         final = False
-                        pygame.quit()
+                        sys.exit()
                     if event.type == pygame.KEYDOWN:
                         if event.key == pygame.K_ESCAPE:
                             final = False
@@ -494,7 +496,7 @@ class GameOfLife:
                     rules = False
                 if event.type == QUIT:
                     rules = False
-                    pygame.quit()
+                    sys.exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
                         rules = False
@@ -516,7 +518,7 @@ class GameOfLife:
             for event in pygame.event.get():
                 if event.type == QUIT:
                     running = False
-                    pygame.quit()
+                    sys.exit()
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
                         running = False
@@ -558,7 +560,7 @@ class GameOfLife:
                         self.start_game()
                     if event.type == QUIT:
                         final = False
-                        pygame.quit()
+                        sys.exit()
                     if event.type == pygame.KEYDOWN:
                         if event.key == pygame.K_ESCAPE:
                             final = False
@@ -601,7 +603,7 @@ class GameOfLife:
                                 pygame.display.flip()
                                 count += 1
                     elif i.type == pygame.QUIT:
-                        pygame.quit()
+                        sys.exit()
                 pygame.time.delay(20)
 
     def draw_cell_list(self, k=0):
