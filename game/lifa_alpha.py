@@ -135,7 +135,7 @@ class GameOfLife:
         self.screen.fill(pygame.Color('white'))
         running = True
         pygame.mixer.music.load('music\\polaris.mp3')
-        pygame.mixer.music.play()
+        pygame.mixer.music.play(-1)
         while running:
 
             for event in pygame.event.get():
@@ -206,7 +206,7 @@ class GameOfLife:
         rules = True
         running = True
         pygame.mixer.music.load('music\\mike_beatit.mp3')
-        pygame.mixer.music.play()
+        pygame.mixer.music.play(-1)
         while rules:
             myImage1 = pygame.image.load('images\\warrules.jpg')
             myRect1 = (0, 0, 640, 480)
@@ -232,13 +232,13 @@ class GameOfLife:
             self.draw_grid()
             self.draw_war_map()
             pygame.display.flip()
-            self.create_cell_list()
+            self.create_cell_list(n = 40)
             self.draw_cell_list()
             self.draw_grid()
             pygame.display.flip()
             clock.tick(self.speed)
 
-        while running and self.counter < 50:
+        while running and self.counter < 10:
             for event in pygame.event.get():
                 if event.type == QUIT:
                     running = False
@@ -308,14 +308,484 @@ class GameOfLife:
             print("First player captured: ", points11, points12, points13, points14, points15)
             print("Second player captured: ", points21, points22, points23, points24, points25)
             if points11 > 0 and points12 > 0 and points13 > 0 and points14 > 0 and points15 > 0:
-                print('Player #1 win!')
+                print('Player #1 win 1st round!')
                 winner = 1
             elif points21 > 0 and points22 > 0 and points23 > 0 and points24 > 0 and points25 > 0:
-                print('Player #2 win!')
+                print('Player #2 win 1st round!')
                 winner = 2
             else:
                 print('War, war never changes')
                 winner = 3
+            s = 0
+            c = 0
+            if points11:
+                s += 1
+            if points12:
+                s += 1
+            if points13:
+                s += 1
+            if points14:
+                s += 1
+            if points15:
+                s += 1
+            if points21:
+                c += 1
+            if points22:
+                c += 1
+            if points23:
+                c += 1
+            if points24:
+                c += 1
+            if points25:
+                c += 1
+
+            if running == True:
+
+
+
+                self.create_cell_list(n=c, dop = "red")
+                self.create_cell_list(n=s, dop = "blue")
+                s = 0
+                c = 0
+                self.draw_cell_list()
+                self.draw_grid()
+                pygame.display.flip()
+                clock.tick(self.speed)
+
+            while running and self.counter < 10:
+                for event in pygame.event.get():
+                    if event.type == QUIT:
+                        running = False
+                        sys.exit()
+                    if event.type == pygame.KEYDOWN:
+                        if event.key == pygame.K_ESCAPE:
+                            running = False
+                            self.counter = 0
+                            self.chosengame = 0
+                            self.start_game()
+
+                self.counter += 1
+                self.evolve()
+                self.draw_cell_list()
+                self.draw_grid()
+                self.draw_war_map()
+                pygame.display.flip()
+                clock.tick(self.speed)
+            self.counter = 0
+            points11 = 0
+            points12 = 0
+            points13 = 0
+            points14 = 0
+            points15 = 0
+            points21 = 0
+            points22 = 0
+            points23 = 0
+            points24 = 0
+            points25 = 0
+            if running == True:
+                for i in range(self.cell_height):
+                    for j in range(self.cell_width):
+                        if i < 7 and j < 10:
+                            if self.cell_list[i][j] % 2 == 0 and self.cell_list[i][j] > 0:
+                                points11 += 1
+
+                            if self.cell_list[i][j] % 2 == 1 and self.cell_list[i][j] > 0 and self.cell_list[i][j] != 1:
+                                points21 += 1
+
+                        if i < 7 and j > 21:
+                            if self.cell_list[i][j] % 2 == 0 and self.cell_list[i][j] > 0:
+                                points12 += 1
+
+                            if self.cell_list[i][j] % 2 == 1 and self.cell_list[i][j] > 0 and self.cell_list[i][j] != 1:
+                                points22 += 1
+
+                        if i > 16 and j < 10:
+                            if self.cell_list[i][j] % 2 == 0 and self.cell_list[i][j] > 0:
+                                points13 += 1
+
+                            if self.cell_list[i][j] % 2 == 1 and self.cell_list[i][j] > 0 and self.cell_list[i][j] != 1:
+                                points23 += 1
+
+                        if i > 16 and j > 21:
+                            if self.cell_list[i][j] % 2 == 0 and self.cell_list[i][j] > 0:
+                                points14 += 1
+
+                            if self.cell_list[i][j] % 2 == 1 and self.cell_list[i][j] > 0 and self.cell_list[i][j] != 1:
+                                points24 += 1
+
+                        if (j < 19 and j > 12) and (i > 8 and i < 15):
+                            if self.cell_list[i][j] % 2 == 0 and self.cell_list[i][j] > 0:
+                                points15 += 1
+
+                            if self.cell_list[i][j] % 2 == 1 and self.cell_list[i][j] > 0 and self.cell_list[i][j] != 1:
+                                points25 += 1
+                print("First player captured: ", points11, points12, points13, points14, points15)
+                print("Second player captured: ", points21, points22, points23, points24, points25)
+                if points11 > 0 and points12 > 0 and points13 > 0 and points14 > 0 and points15 > 0:
+                    print('Player #2 win 2nd round!')
+                    winner = 1
+                elif points21 > 0 and points22 > 0 and points23 > 0 and points24 > 0 and points25 > 0:
+                    print('Player #1 win 2nd round!')
+                    winner = 2
+                else:
+                    print('War, war never changes')
+                    winner = 3
+                if points11:
+                    s += 1
+                if points12:
+                    s += 1
+                if points13:
+                    s += 1
+                if points14:
+                    s += 1
+                if points15:
+                    s += 1
+                if points21:
+                    c += 1
+                if points22:
+                    c += 1
+                if points23:
+                    c += 1
+                if points24:
+                    c += 1
+                if points25:
+                    c += 1
+
+            if running == True:
+                self.create_cell_list(n=c, dop="red")
+                self.create_cell_list(n=s, dop="blue")
+                s = 0
+                c = 0
+                self.draw_cell_list()
+                self.draw_grid()
+                pygame.display.flip()
+                clock.tick(self.speed)
+
+            while running and self.counter < 10:
+                for event in pygame.event.get():
+                    if event.type == QUIT:
+                        running = False
+                        sys.exit()
+                    if event.type == pygame.KEYDOWN:
+                        if event.key == pygame.K_ESCAPE:
+                            running = False
+                            self.counter = 0
+                            self.chosengame = 0
+                            self.start_game()
+
+                self.counter += 1
+                self.evolve()
+                self.draw_cell_list()
+                self.draw_grid()
+                self.draw_war_map()
+                pygame.display.flip()
+                clock.tick(self.speed)
+            self.counter = 0
+            points11 = 0
+            points12 = 0
+            points13 = 0
+            points14 = 0
+            points15 = 0
+            points21 = 0
+            points22 = 0
+            points23 = 0
+            points24 = 0
+            points25 = 0
+            if running == True:
+                for i in range(self.cell_height):
+                    for j in range(self.cell_width):
+                        if i < 7 and j < 10:
+                            if self.cell_list[i][j] % 2 == 0 and self.cell_list[i][j] > 0:
+                                points11 += 1
+
+                            if self.cell_list[i][j] % 2 == 1 and self.cell_list[i][j] > 0 and self.cell_list[i][j] != 1:
+                                points21 += 1
+
+                        if i < 7 and j > 21:
+                            if self.cell_list[i][j] % 2 == 0 and self.cell_list[i][j] > 0:
+                                points12 += 1
+
+                            if self.cell_list[i][j] % 2 == 1 and self.cell_list[i][j] > 0 and self.cell_list[i][j] != 1:
+                                points22 += 1
+
+                        if i > 16 and j < 10:
+                            if self.cell_list[i][j] % 2 == 0 and self.cell_list[i][j] > 0:
+                                points13 += 1
+
+                            if self.cell_list[i][j] % 2 == 1 and self.cell_list[i][j] > 0 and self.cell_list[i][j] != 1:
+                                points23 += 1
+
+                        if i > 16 and j > 21:
+                            if self.cell_list[i][j] % 2 == 0 and self.cell_list[i][j] > 0:
+                                points14 += 1
+
+                            if self.cell_list[i][j] % 2 == 1 and self.cell_list[i][j] > 0 and self.cell_list[i][j] != 1:
+                                points24 += 1
+
+                        if (j < 19 and j > 12) and (i > 8 and i < 15):
+                            if self.cell_list[i][j] % 2 == 0 and self.cell_list[i][j] > 0:
+                                points15 += 1
+
+                            if self.cell_list[i][j] % 2 == 1 and self.cell_list[i][j] > 0 and self.cell_list[i][j] != 1:
+                                points25 += 1
+                print("First player captured: ", points11, points12, points13, points14, points15)
+                print("Second player captured: ", points21, points22, points23, points24, points25)
+                if points11 > 0 and points12 > 0 and points13 > 0 and points14 > 0 and points15 > 0:
+                    print('Player #2 win 3d round!')
+                    winner = 1
+                elif points21 > 0 and points22 > 0 and points23 > 0 and points24 > 0 and points25 > 0:
+                    print('Player #1 win 3d round!')
+                    winner = 2
+                else:
+                    print('War, war never changes')
+                    winner = 3
+
+                if points11:
+                    s += 1
+                if points12:
+                    s += 1
+                if points13:
+                    s += 1
+                if points14:
+                    s += 1
+                if points15:
+                    s += 1
+                if points21:
+                    c += 1
+                if points22:
+                    c += 1
+                if points23:
+                    c += 1
+                if points24:
+                    c += 1
+                if points25:
+                    c += 1
+
+
+            if running == True:
+
+
+
+                self.create_cell_list(n=c, dop = "red")
+                self.create_cell_list(n=s, dop = "blue")
+                s=0
+                c=0
+                self.draw_cell_list()
+                self.draw_grid()
+                pygame.display.flip()
+                clock.tick(self.speed)
+
+            while running and self.counter < 10:
+                for event in pygame.event.get():
+                    if event.type == QUIT:
+                        running = False
+                        sys.exit()
+                    if event.type == pygame.KEYDOWN:
+                        if event.key == pygame.K_ESCAPE:
+                            running = False
+                            self.counter = 0
+                            self.chosengame = 0
+                            self.start_game()
+
+                self.counter += 1
+                self.evolve()
+                self.draw_cell_list()
+                self.draw_grid()
+                self.draw_war_map()
+                pygame.display.flip()
+                clock.tick(self.speed)
+            self.counter = 0
+            points11 = 0
+            points12 = 0
+            points13 = 0
+            points14 = 0
+            points15 = 0
+            points21 = 0
+            points22 = 0
+            points23 = 0
+            points24 = 0
+            points25 = 0
+            if running == True:
+                for i in range(self.cell_height):
+                    for j in range(self.cell_width):
+                        if i < 7 and j < 10:
+                            if self.cell_list[i][j] % 2 == 0 and self.cell_list[i][j] > 0:
+                                points11 += 1
+
+                            if self.cell_list[i][j] % 2 == 1 and self.cell_list[i][j] > 0 and self.cell_list[i][j] != 1:
+                                points21 += 1
+
+                        if i < 7 and j > 21:
+                            if self.cell_list[i][j] % 2 == 0 and self.cell_list[i][j] > 0:
+                                points12 += 1
+
+                            if self.cell_list[i][j] % 2 == 1 and self.cell_list[i][j] > 0 and self.cell_list[i][j] != 1:
+                                points22 += 1
+
+                        if i > 16 and j < 10:
+                            if self.cell_list[i][j] % 2 == 0 and self.cell_list[i][j] > 0:
+                                points13 += 1
+
+                            if self.cell_list[i][j] % 2 == 1 and self.cell_list[i][j] > 0 and self.cell_list[i][j] != 1:
+                                points23 += 1
+
+                        if i > 16 and j > 21:
+                            if self.cell_list[i][j] % 2 == 0 and self.cell_list[i][j] > 0:
+                                points14 += 1
+
+                            if self.cell_list[i][j] % 2 == 1 and self.cell_list[i][j] > 0 and self.cell_list[i][j] != 1:
+                                points24 += 1
+
+                        if (j < 19 and j > 12) and (i > 8 and i < 15):
+                            if self.cell_list[i][j] % 2 == 0 and self.cell_list[i][j] > 0:
+                                points15 += 1
+
+                            if self.cell_list[i][j] % 2 == 1 and self.cell_list[i][j] > 0 and self.cell_list[i][j] != 1:
+                                points25 += 1
+                print("First player captured: ", points11, points12, points13, points14, points15)
+                print("Second player captured: ", points21, points22, points23, points24, points25)
+                if points11 > 0 and points12 > 0 and points13 > 0 and points14 > 0 and points15 > 0:
+                    print('Player #2 win 4th round!')
+                    winner = 1
+                elif points21 > 0 and points22 > 0 and points23 > 0 and points24 > 0 and points25 > 0:
+                    print('Player #1 win 4th round!')
+                    winner = 2
+                else:
+                    print('War, war never changes')
+                    winner = 3
+                if points11:
+                    s += 1
+                if points12:
+                    s += 1
+                if points13:
+                    s += 1
+                if points14:
+                    s += 1
+                if points15:
+                    s += 1
+                if points21:
+                    c += 1
+                if points22:
+                    c += 1
+                if points23:
+                    c += 1
+                if points24:
+                    c += 1
+                if points25:
+                    c += 1
+
+            if running == True:
+
+
+
+                self.create_cell_list(n=c, dop = "red")
+                self.create_cell_list(n=s, dop = "blue")
+                s = 0
+                c = 0
+                self.draw_cell_list()
+                self.draw_grid()
+                pygame.display.flip()
+                clock.tick(self.speed)
+
+            while running and self.counter < 10:
+                for event in pygame.event.get():
+                    if event.type == QUIT:
+                        running = False
+                        sys.exit()
+                    if event.type == pygame.KEYDOWN:
+                        if event.key == pygame.K_ESCAPE:
+                            running = False
+                            self.counter = 0
+                            self.chosengame = 0
+                            self.start_game()
+
+                self.counter += 1
+                self.evolve()
+                self.draw_cell_list()
+                self.draw_grid()
+                self.draw_war_map()
+                pygame.display.flip()
+                clock.tick(self.speed)
+            self.counter = 0
+            points11 = 0
+            points12 = 0
+            points13 = 0
+            points14 = 0
+            points15 = 0
+            points21 = 0
+            points22 = 0
+            points23 = 0
+            points24 = 0
+            points25 = 0
+            if running == True:
+                for i in range(self.cell_height):
+                    for j in range(self.cell_width):
+                        if i < 7 and j < 10:
+                            if self.cell_list[i][j] % 2 == 0 and self.cell_list[i][j] > 0:
+                                points11 += 1
+
+                            if self.cell_list[i][j] % 2 == 1 and self.cell_list[i][j] > 0 and self.cell_list[i][j] != 1:
+                                points21 += 1
+
+                        if i < 7 and j > 21:
+                            if self.cell_list[i][j] % 2 == 0 and self.cell_list[i][j] > 0:
+                                points12 += 1
+
+                            if self.cell_list[i][j] % 2 == 1 and self.cell_list[i][j] > 0 and self.cell_list[i][j] != 1:
+                                points22 += 1
+
+                        if i > 16 and j < 10:
+                            if self.cell_list[i][j] % 2 == 0 and self.cell_list[i][j] > 0:
+                                points13 += 1
+
+                            if self.cell_list[i][j] % 2 == 1 and self.cell_list[i][j] > 0 and self.cell_list[i][j] != 1:
+                                points23 += 1
+
+                        if i > 16 and j > 21:
+                            if self.cell_list[i][j] % 2 == 0 and self.cell_list[i][j] > 0:
+                                points14 += 1
+
+                            if self.cell_list[i][j] % 2 == 1 and self.cell_list[i][j] > 0 and self.cell_list[i][j] != 1:
+                                points24 += 1
+
+                        if (j < 19 and j > 12) and (i > 8 and i < 15):
+                            if self.cell_list[i][j] % 2 == 0 and self.cell_list[i][j] > 0:
+                                points15 += 1
+
+                            if self.cell_list[i][j] % 2 == 1 and self.cell_list[i][j] > 0 and self.cell_list[i][j] != 1:
+                                points25 += 1
+                print("First player captured: ", points11, points12, points13, points14, points15)
+                print("Second player captured: ", points21, points22, points23, points24, points25)
+                if points11 > 0 and points12 > 0 and points13 > 0 and points14 > 0 and points15 > 0:
+                    print('Player #2 win 5th round!')
+                    winner = 1
+                elif points21 > 0 and points22 > 0 and points23 > 0 and points24 > 0 and points25 > 0:
+                    print('Player #1 win 5th round!')
+                    winner = 2
+                else:
+                    print('War, war never changes')
+                    winner = 3
+                if points11:
+                    s += 1
+                if points12:
+                    s += 1
+                if points13:
+                    s += 1
+                if points14:
+                    s += 1
+                if points15:
+                    s += 1
+                if points21:
+                    c += 1
+                if points22:
+                    c += 1
+                if points23:
+                    c += 1
+                if points24:
+                    c += 1
+                if points25:
+                    c += 1
+
 
             final = True
             while final:
@@ -350,7 +820,7 @@ class GameOfLife:
         running = True
         pygame.init()
         pygame.mixer.music.load('music\\tetris.mp3')
-        pygame.mixer.music.play()
+        pygame.mixer.music.play(-1)
         clock = pygame.time.Clock()
         pygame.display.set_caption('Thank you Conway!')
         self.screen.fill(pygame.Color('black'))
@@ -393,7 +863,7 @@ class GameOfLife:
         rules = True
         running = True
         pygame.mixer.music.load('music\\mike_smoothcriminal.mp3')
-        pygame.mixer.music.play()
+        pygame.mixer.music.play(-1)
         while rules:
             myImage1 = pygame.image.load('images\\economicsrules.jpg')
             myRect1 = (0, 0, 640, 480)
@@ -484,7 +954,7 @@ class GameOfLife:
         rules = True
         running = True
         pygame.mixer.music.load('music\\mike_billiejean.mp3')
-        pygame.mixer.music.play()
+        pygame.mixer.music.play(-1)
         while rules:
             myImage1 = pygame.image.load('images\\religionrules.jpg')
             myRect1 = (0, 0, 640, 480)
@@ -568,8 +1038,9 @@ class GameOfLife:
                             self.chosengame = 0
                             self.start_game()
 
-    def create_cell_list(self, randomize=False, b='black'):
-        self.cell_list = [[0] * self.cell_width for i in range(self.cell_height)]
+    def create_cell_list(self, randomize=False, b='black', n=40, dop = ""):
+        if n == 40:
+            self.cell_list = [[0] * self.cell_width for i in range(self.cell_height)]
         if randomize:
             choicelist = [0] + list(range(2, self.n))
             for i in range(self.cell_height):
@@ -578,30 +1049,51 @@ class GameOfLife:
         else:
             count = 0
 
-
-
-            while count < self.moves * (self.n - 2) ** 2:
-
+            while count < n :
+                if count % 2 == 0:
+                    h = 1
+                else:
+                    h = 0
                 for i in pygame.event.get():
                     if i.type == pygame.MOUSEBUTTONDOWN:
                         if i.button == 1:
                             x = i.pos[0] // self.cell_size
                             y = i.pos[1] // self.cell_size
-                            if self.cell_list[y][x] == 0:
-                                self.cell_list[y][x] = 2 + ((count + 1) // 2) % (self.n - 2)
+                            if self.cell_list[y][x] == 0 and dop == "":
+                                self.cell_list[y][x] = 2 + h
                                 if b == 'black':
-                                    pygame.draw.rect(self.screen, pygame.Color(self.colors[self.cell_list[y][x]]),
-                                                     pygame.Rect(x * self.cell_size, y * self.cell_size, self.cell_size,
-                                                                 self.cell_size))
+                                    if h == 1 :
+                                        pygame.draw.rect(self.screen, pygame.Color('red'),
+                                                        pygame.Rect(x * self.cell_size, y * self.cell_size, self.cell_size,
+                                                                    self.cell_size))
+                                    if h == 0 :
+                                        pygame.draw.rect(self.screen, pygame.Color('blue'),
+                                                         pygame.Rect(x * self.cell_size, y * self.cell_size,
+                                                                     self.cell_size,
+                                                                     self.cell_size))
                                 if b == 'white':
                                     pygame.draw.rect(self.screen, pygame.Color('green'),
                                                      pygame.Rect(x * self.cell_size, y * self.cell_size, self.cell_size,
                                                                  self.cell_size))
+                            if self.cell_list[y][x] == 0 and dop == "red":
+                                self.cell_list[y][x] = 2 + 1
+                                if b == 'black':
+                                        pygame.draw.rect(self.screen, pygame.Color('red'),
+                                                             pygame.Rect(x * self.cell_size, y * self.cell_size,
+                                                                         self.cell_size,
+                                                                         self.cell_size))
+                            if self.cell_list[y][x] == 0 and dop == "blue":
+                                self.cell_list[y][x] = 2
+                                if b == 'black':
+                                        pygame.draw.rect(self.screen, pygame.Color('blue'),
+                                                             pygame.Rect(x * self.cell_size, y * self.cell_size,
+                                                                         self.cell_size,
+                                                                         self.cell_size))
 
-                                self.draw_grid(b)
+                            self.draw_grid(b)
 
-                                pygame.display.flip()
-                                count += 1
+                            pygame.display.flip()
+                            count += 1
                     elif i.type == pygame.QUIT:
                         sys.exit()
                 pygame.time.delay(20)
