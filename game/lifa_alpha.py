@@ -233,10 +233,7 @@ class GameOfLife:
             self.draw_war_map()
             pygame.display.flip()
             self.create_cell_list(n = 40)
-            self.draw_cell_list()
-            self.draw_grid()
-            pygame.display.flip()
-            clock.tick(self.speed)
+
 
         while running and self.counter < 10:
             for event in pygame.event.get():
@@ -347,10 +344,9 @@ class GameOfLife:
                 self.create_cell_list(n=s, dop = "blue")
                 s = 0
                 c = 0
-                self.draw_cell_list()
-                self.draw_grid()
-                pygame.display.flip()
-                clock.tick(self.speed)
+
+
+
 
             while running and self.counter < 10:
                 for event in pygame.event.get():
@@ -456,10 +452,7 @@ class GameOfLife:
                 self.create_cell_list(n=s, dop="blue")
                 s = 0
                 c = 0
-                self.draw_cell_list()
-                self.draw_grid()
-                pygame.display.flip()
-                clock.tick(self.speed)
+
 
             while running and self.counter < 10:
                 for event in pygame.event.get():
@@ -570,10 +563,7 @@ class GameOfLife:
                 self.create_cell_list(n=s, dop = "blue")
                 s=0
                 c=0
-                self.draw_cell_list()
-                self.draw_grid()
-                pygame.display.flip()
-                clock.tick(self.speed)
+
 
             while running and self.counter < 10:
                 for event in pygame.event.get():
@@ -682,10 +672,7 @@ class GameOfLife:
                 self.create_cell_list(n=s, dop = "blue")
                 s = 0
                 c = 0
-                self.draw_cell_list()
-                self.draw_grid()
-                pygame.display.flip()
-                clock.tick(self.speed)
+
 
             while running and self.counter < 10:
                 for event in pygame.event.get():
