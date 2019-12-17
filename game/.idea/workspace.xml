@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="58819a83-8fd6-4cef-9768-d6cd61634442" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lifa_alpha.py" beforeDir="false" afterPath="$PROJECT_DIR$/lifa_alpha.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/economicsrules.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/economicsrules.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/religionrules.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/religionrules.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/warrules.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/images/warrules.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,7 +37,7 @@
       <recent name="C:\Users\leoni\PycharmProjects\server" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.lifa_alpha">
+  <component name="RunManager" selected="Python.life_1.1">
     <configuration name="lifa_alpha" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="server" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -78,7 +80,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="lkk;" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="life" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="server" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -90,7 +92,28 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lkk;.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/life.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="life_1.1" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/life_1.1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -141,34 +164,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="war is life" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="server" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/war is life.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.life_1.1" />
+        <item itemvalue="Python.life" />
         <item itemvalue="Python.lifa_alpha" />
         <item itemvalue="Python.life beta" />
         <item itemvalue="Python.sdsd" />
-        <item itemvalue="Python.lkk;" />
-        <item itemvalue="Python.war is life" />
       </list>
     </recent_temporary>
   </component>
@@ -206,22 +208,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1220" y="265" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1575816724176" />
-    <state width="1899" height="258" key="GridCell.Tab.0.bottom" timestamp="1576532884483">
+    <state width="1899" height="258" key="GridCell.Tab.0.bottom" timestamp="1576573461592">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1576532884483" />
-    <state width="1899" height="258" key="GridCell.Tab.0.center" timestamp="1576532884483">
+    <state width="1899" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1576573461592" />
+    <state width="1899" height="258" key="GridCell.Tab.0.center" timestamp="1576573461592">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="258" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1576532884483" />
-    <state width="1899" height="258" key="GridCell.Tab.0.left" timestamp="1576532884483">
+    <state width="1899" height="258" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1576573461592" />
+    <state width="1899" height="258" key="GridCell.Tab.0.left" timestamp="1576573461592">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="258" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1576532884483" />
-    <state width="1899" height="258" key="GridCell.Tab.0.right" timestamp="1576532884483">
+    <state width="1899" height="258" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1576573461592" />
+    <state width="1899" height="258" key="GridCell.Tab.0.right" timestamp="1576573461592">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="258" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1576532884483" />
+    <state width="1899" height="258" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1576573461592" />
     <state width="1899" height="348" key="GridCell.Tab.1.bottom" timestamp="1576529980405">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -238,10 +240,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1899" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1576529980405" />
-    <state x="656" y="388" key="com.intellij.ide.util.TipDialog" timestamp="1576532191228">
+    <state x="656" y="388" key="com.intellij.ide.util.TipDialog" timestamp="1576572899114">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="388" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576532191228" />
+    <state x="656" y="388" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576572899114" />
     <state x="531" y="255" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1575918988632">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
